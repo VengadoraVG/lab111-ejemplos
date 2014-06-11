@@ -9,7 +9,7 @@ public class Sorting {
      los elementos desde V[2] hasta V[n], y luego ... 
    **/
 
-  public static int[] selection_sort(int[] V) {
+  public static void selection_sort(int[] V) {
     int buffer;
 
     for(int i=0; i<V.length; i++) {
@@ -19,7 +19,6 @@ public class Sorting {
       V[pequeno] = buffer;
     }
 
-    return V;
   }
 
   /**
@@ -29,7 +28,7 @@ public class Sorting {
 
      btw, con este método se resolvía la 1ra pregunta del parcial.
    **/
-  public static int[] insertion_sort(int[] V) {
+  public static void insertion_sort(int[] V) {
     int buffer, i=V.length-1;
 
     while(i>=0) {
@@ -51,14 +50,13 @@ public class Sorting {
       i--;
     }
 
-    return V;
   }
 
   /**
      El más lento de todos los métodos de ordenación. Solo el Bogo-sort 
      le gana XD
    **/
-  public static int[] buble_sort(int[] V) {
+  public static void buble_sort(int[] V) {
     int losQueYaEstanOrdenados=0, buffer;
     
     for(int run=0; run <V.length; run++) {
@@ -72,7 +70,6 @@ public class Sorting {
       losQueYaEstanOrdenados++;
     }
 
-    return V;
 
   }
   
