@@ -1,16 +1,38 @@
 import java.util.Scanner;
 
 public class VectorToolbox {
-  public static void rotar_hacia_la_derecha(int[] V) {
-
+  public static void rotar_hacia_la_izquierda(int[] V) {
+    int first = recorrer_hacia_la_izquierda(V, V.length);
+    V[V.length-1] = first;
   }
 
-  public static void recorrer_hacia_la_derecha(int[] V, int posicion) {
-    V=cambiar_tamano_vector(V, V.length);
-    
-    for(int i=V.length-1; i>posicion; i++) 
-      V[i] = V[i-1];
+  public static void rotar_hacia_la_derecha(int[] V) {
+    int last = recorrer_hacia_la_derecha(V, 0);
+    V[0] = last;
+  }
 
+  public static int recorrer_hacia_la_derecha(int[] V, int posicion) {
+    int buffer = V[V.length-1];
+    
+    for(int i=V.length-1; i>posicion; i--) {      
+      System.out.println(i + " es ahora " + (i-1));
+      V[i] = V[i-1];
+    }
+    
+    return buffer;
+  }
+
+  public static int recorrer_hacia_la_izquierda(int[] V, int posicion) {
+    int buffer = V[0];
+
+    if(posicion > V.length-1)
+      posicion = V.length-1;
+
+    for(int i=0; i<posicion; i++) {
+      V[i] = V[i+1];
+    }
+
+    return buffer;
   }
 
   public static int[] cambiar_tamano_vector(int[] V, int nuevoTamano) {
